@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebWorm LMS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(270deg, #4a90e2, #f5f5f5, #e9eff8);
+      background-size: 400% 400%;
+      animation: gradientShift 10s infinite alternate;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: rgba(74, 144, 226, 0.9);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #357ABD;
+      padding: 15px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f5f5f5;
+      text-decoration: underline;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .sidebar {
+      width: 100%;
+      max-width: 250px;
+      background-color: #e9eff8;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .content {
+      flex: 1;
+      margin-left: 20px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(74, 144, 226, 0.9);
+      color: white;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+    }
+
+    #watson-assistant {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>WebWorm LMS</h1>
+    <p>Welcome to your personalized learning dashboard</p>
+  </header>
+
+  <nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Courses</a>
+    <a href="#">Assignments</a>
+    <a href="#">Messages</a>
+    <a href="#">Profile</a>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">My Courses</a></li>
+        <li><a href="#">Upcoming Deadlines</a></li>
+        <li><a href="#">Grades</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h2>Hello, Student!</h2>
+      <p>This is your learning space. You can:</p>
+      <ul>
+        <li>Submit assignments</li>
+        <li>Watch recorded lectures</li>
+        <li>Message your instructors</li>
+        <li>Use the chatbot for help anytime</li>
+      </ul>
+      <p>Start exploring now!</p>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 WebWorm LMS. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "2deb69a3-9d26-4410-846c-011f40b5c369",
+      region: "au-syd",
+      serviceInstanceID: "410e8e3e-f9b3-41aa-b7b6-1a099970e783",
+      onLoad: async (instance) => { await instance.render(); }
+    };
+
+    setTimeout(() => {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/latest/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    }, 500);
+  </script>
+
+</body>
+</html>
